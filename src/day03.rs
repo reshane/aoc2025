@@ -62,7 +62,7 @@ fn get_max(bank: String) -> i64 {
     for i in 1..=bank.len() {
         for j in 1..=num_len {
             let q = &bank[i-1..i];
-            if (m[i][j-1].clone() + q).len() > j {
+            if m[i][j-1].len() + q.len() > j {
                 m[i][j] = m[i-1][j].clone();
             } else {
                 let a = if m[i-1][j].len() == 0 { 0 } else { m[i-1][j].clone().parse::<i64>().unwrap() };
