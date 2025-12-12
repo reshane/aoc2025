@@ -69,12 +69,13 @@ fn solve_p1(contents: String) -> i64 {
     let (shapes, problems) = parse_input(contents);
     let min_per_shape: Vec<u8> = shapes.iter().map(|s| shape_min_spaces(s)).collect();
     let mut total_yes = 0;
+    #[allow(unused)]
     let mut total_no = 0;
     for ((w,h), reqs) in problems.iter() {
         let min_spaces = reqs.iter().enumerate().fold(0_i64, |acc, (idx, c)| {
             acc + (c * min_per_shape[idx] as i64)
         });
-        let max_spaces = reqs.iter().enumerate().fold(0_i64, |acc, (idx, c)| {
+        let max_spaces = reqs.iter().fold(0_i64, |acc, c| {
             acc + (c * 9_i64)
         });
         if w*h >= max_spaces {
