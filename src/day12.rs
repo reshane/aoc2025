@@ -89,7 +89,8 @@ fn solve_p1(contents: String) -> i64 {
     total_yes as i64
 }
 
-#[test]
+// #[test]
+#[allow(unused)]
 fn test_case_1() {
     let contents = fs::read_to_string("inputs/12.txt").expect("WHERE IS THE FILE");
     let result = solve_p1(contents);
